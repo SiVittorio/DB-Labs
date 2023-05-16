@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JIy7v6OjoH4ZrGy3Dlsgp6a5urzD/wIqKBTmanKyx+3PI8jdwRtvyzGj5GtmI3vtzG4glriGezWkjIvqjb4qmg==",
+  "dgSpecHash": "PD6erRBjXRAg8b5kKbmEXNBYYzMv4c1Yjv3X6mYtaG0ciaPvlViaMPzz7z8ikDYIGyaEE3WJmeab7LFDcRZXpQ==",
   "success": true,
-  "projectFilePath": "C:\\PROJECTS\\fotForms\\fotForms\\fotForms.csproj",
+  "projectFilePath": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\fotForms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\npgsql\\7.0.4\\npgsql.7.0.4.nupkg.sha512"

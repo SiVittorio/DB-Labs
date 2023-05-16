@@ -127,11 +127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PROJECTS\\fotForms\\fotForms\\fotForms.csproj",
+      "projectUniqueName": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\fotForms.csproj",
       "projectName": "fotForms",
-      "projectPath": "C:\\PROJECTS\\fotForms\\fotForms\\fotForms.csproj",
+      "projectPath": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\fotForms.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\PROJECTS\\fotForms\\fotForms\\obj\\",
+      "outputPath": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

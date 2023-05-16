@@ -13,7 +13,10 @@ namespace fotForms.Views
 
         private void getEmployeeBtn_Click(object sender, EventArgs e)
         {
-            MainController.GetEmployee(1);
+            Employee employee = MainController.GetEmployee(Int32.Parse(employeeIdBox.Text));
+
+            //employeeInfo.Items.Add(employee.Id + employee.m_name);
         }
+
     }
 }
