@@ -34,8 +34,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(582, 353);
             Name = "EmployeeForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "EmployeeForm";
             Load += EmployeeForm_Load;
             ResumeLayout(false);

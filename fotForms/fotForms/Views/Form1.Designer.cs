@@ -28,77 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            getEmployeeBtn = new Button();
-            employeeIdBox = new TextBox();
-            tableEmployees = new TableLayoutPanel();
-            listView1 = new ListView();
-            tableEmployees.SuspendLayout();
+            panel1 = new Panel();
+            btnEmployees = new Button();
+            btnProjects = new Button();
+            groupButtons = new GroupBox();
+            groupAnalysisInfo = new GroupBox();
+            labelCurDate = new Label();
+            groupButtons.SuspendLayout();
+            groupAnalysisInfo.SuspendLayout();
             SuspendLayout();
             // 
-            // getEmployeeBtn
+            // panel1
             // 
-            getEmployeeBtn.Location = new Point(305, 91);
-            getEmployeeBtn.Name = "getEmployeeBtn";
-            getEmployeeBtn.Size = new Size(173, 29);
-            getEmployeeBtn.TabIndex = 0;
-            getEmployeeBtn.Text = "Инфо о сотруднике";
-            getEmployeeBtn.UseVisualStyleBackColor = true;
-            getEmployeeBtn.Click += getEmployeeBtn_Click;
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(0, 0);
+            panel1.TabIndex = 0;
             // 
-            // employeeIdBox
+            // btnEmployees
             // 
-            employeeIdBox.Location = new Point(305, 58);
-            employeeIdBox.Name = "employeeIdBox";
-            employeeIdBox.Size = new Size(173, 27);
-            employeeIdBox.TabIndex = 2;
+            btnEmployees.Location = new Point(6, 26);
+            btnEmployees.Name = "btnEmployees";
+            btnEmployees.Size = new Size(105, 29);
+            btnEmployees.TabIndex = 1;
+            btnEmployees.Text = "Сотрудники";
+            btnEmployees.UseVisualStyleBackColor = true;
+            btnEmployees.Click += btnEmployees_Click;
             // 
-            // tableEmployees
+            // btnProjects
             // 
-            tableEmployees.ColumnCount = 7;
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.ColumnStyles.Add(new ColumnStyle());
-            tableEmployees.Controls.Add(listView1, 6, 0);
-            tableEmployees.Location = new Point(12, 126);
-            tableEmployees.Name = "tableEmployees";
-            tableEmployees.RowCount = 2;
-            tableEmployees.RowStyles.Add(new RowStyle(SizeType.Percent, 22.5525742F));
-            tableEmployees.RowStyles.Add(new RowStyle(SizeType.Percent, 77.4474258F));
-            tableEmployees.Size = new Size(729, 311);
-            tableEmployees.TabIndex = 3;
+            btnProjects.Location = new Point(6, 76);
+            btnProjects.Name = "btnProjects";
+            btnProjects.Size = new Size(105, 29);
+            btnProjects.TabIndex = 2;
+            btnProjects.Text = "Проекты";
+            btnProjects.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // groupButtons
             // 
-            listView1.Location = new Point(3, 3);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(151, 64);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            groupButtons.Controls.Add(btnProjects);
+            groupButtons.Controls.Add(btnEmployees);
+            groupButtons.Location = new Point(12, 12);
+            groupButtons.Name = "groupButtons";
+            groupButtons.Size = new Size(117, 330);
+            groupButtons.TabIndex = 3;
+            groupButtons.TabStop = false;
+            // 
+            // groupAnalysisInfo
+            // 
+            groupAnalysisInfo.Controls.Add(labelCurDate);
+            groupAnalysisInfo.Location = new Point(135, 12);
+            groupAnalysisInfo.Name = "groupAnalysisInfo";
+            groupAnalysisInfo.Size = new Size(435, 330);
+            groupAnalysisInfo.TabIndex = 4;
+            groupAnalysisInfo.TabStop = false;
+            groupAnalysisInfo.Text = "Информация";
+            // 
+            // labelCurDate
+            // 
+            labelCurDate.AutoSize = true;
+            labelCurDate.ImageAlign = ContentAlignment.MiddleRight;
+            labelCurDate.Location = new Point(251, 307);
+            labelCurDate.Name = "labelCurDate";
+            labelCurDate.RightToLeft = RightToLeft.No;
+            labelCurDate.Size = new Size(178, 20);
+            labelCurDate.TabIndex = 0;
+            labelCurDate.Text = "Текущая дата: 01.01.2023";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(753, 482);
-            Controls.Add(tableEmployees);
-            Controls.Add(employeeIdBox);
-            Controls.Add(getEmployeeBtn);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(582, 353);
+            Controls.Add(groupAnalysisInfo);
+            Controls.Add(groupButtons);
+            Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
-            tableEmployees.ResumeLayout(false);
+            groupButtons.ResumeLayout(false);
+            groupAnalysisInfo.ResumeLayout(false);
+            groupAnalysisInfo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button getEmployeeBtn;
-        private TextBox employeeIdBox;
-        private TableLayoutPanel tableEmployees;
-        private ListView listView1;
+        private Panel panel1;
+        private Button btnEmployees;
+        private Button btnProjects;
+        private GroupBox groupButtons;
+        private GroupBox groupAnalysisInfo;
+        private Label labelCurDate;
     }
 }

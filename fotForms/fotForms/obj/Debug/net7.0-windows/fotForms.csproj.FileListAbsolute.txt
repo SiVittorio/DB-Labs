@@ -40,3 +40,24 @@ C:\PROJECTS\DB-Labs\fotForms\fotForms\obj\Debug\net7.0-windows\refint\fotForms.d
 C:\PROJECTS\DB-Labs\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.pdb
 C:\PROJECTS\DB-Labs\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.genruntimeconfig.cache
 C:\PROJECTS\DB-Labs\fotForms\fotForms\obj\Debug\net7.0-windows\ref\fotForms.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\fotForms.exe
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\fotForms.deps.json
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\fotForms.runtimeconfig.json
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\fotForms.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\fotForms.pdb
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\bin\Debug\net7.0-windows\Npgsql.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.csproj.AssemblyReference.cache
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.EmployeeForm.resources
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.Form1.resources
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.csproj.GenerateResource.cache
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.GeneratedMSBuildEditorConfig.editorconfig
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.AssemblyInfoInputs.cache
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.AssemblyInfo.cs
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.csproj.CoreCompileInputs.cache
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.csproj.CopyComplete
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\refint\fotForms.dll
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.pdb
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.genruntimeconfig.cache
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\ref\fotForms.dll
