@@ -11,7 +11,7 @@ namespace fotForms.Models
     {
         public int Id { get; set; }
         public string f_name { get; set; }
-        public string m_name { get; set; }
+        public string? m_name { get; set; }
         public string l_name { get; set; }
         public SqlDateTime reg_date { get; set; }
         public string email { get; set; }

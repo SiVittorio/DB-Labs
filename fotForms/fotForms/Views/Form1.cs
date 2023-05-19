@@ -9,7 +9,6 @@ namespace fotForms.Views
         public Form1()
         {
             InitializeComponent();
-            labelCurDate.Text = "Текущая дата: " + DateTime.Now.ToString("d");
         }
 
         private void getEmployeeBtn_Click(object sender, EventArgs e)
@@ -21,10 +20,15 @@ namespace fotForms.Views
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             EmployeeForm employeeForm = new EmployeeForm();
             employeeForm.ShowDialog();
             employeeForm.Location = this.Location;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            labelCurDate.Text = "Текущая дата: " + DateTime.Now.ToString("d");
         }
     }
 }

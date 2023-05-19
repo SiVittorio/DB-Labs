@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using fotForms.Models;
 using fotForms.Views;
+using System.Security.Cryptography;
+
+
+
 
 namespace fotForms.ViewModels
 {
@@ -14,36 +18,78 @@ namespace fotForms.ViewModels
         #region Методы
         public MainController() { }
 
-        public static Employee GetEmployee(int id = 1)
+        public static int GetRowsCount(string tableName)
         {
-            Employee employee = new Employee();
-            
             connection.Open();
 
-            using (var command = new NpgsqlCommand($"SELECT * FROM employees where id={id}", connection))
+            using (var command = new NpgsqlCommand($"SELECT COUNT(*) FROM {tableName}", connection))
             {
                 var reader = command.ExecuteReader();
-                
+
                 if (reader.Read())
                 {
-                    Console.WriteLine($"GetEmployee: Обработка данных для пользователя с id {reader.GetInt32(0)}");
-                    employee.Id = reader.GetInt32(0);
-                    employee.f_name = reader.GetString(1);
-                    employee.m_name = reader.GetString(2);
-                    employee.l_name = reader.GetString(3);
-                    employee.reg_date = reader.GetDateTime(4);
-                    employee.email = reader.GetString(5);
-                    employee.phone = reader.GetString(6);
+                    int count = reader.GetInt32(0);
+                    reader.Close();
+                    connection.Close();
+                    return count;
                 }
                 else
                 {
-                    Console.WriteLine("GetEmployee: данные не считаны");
+                    reader.Close();
+                    connection.Close();
+                    return 0;
                 }
-
-                reader.Close();
             }
-            connection.Close();
-            return employee;
+        }
+
+        public static async Task<int> GetColumnsCount(string tableName)
+        {
+            await connection.OpenAsync();
+
+            using (var command = new NpgsqlCommand($"SELECT * FROM columns_count('{tableName}')", connection))
+            {
+                var reader = await command.ExecuteReaderAsync();
+
+                if (await reader.ReadAsync())
+                {
+                    int count = reader.GetInt32(0);
+                    Console.WriteLine($"Количество строк в таблице {tableName} - {count}");
+                    await reader.CloseAsync();
+                    await connection.CloseAsync();
+                    return count;
+                }
+                else
+                {
+                    Console.WriteLine($"Ошибка получения количества строк в таблице {tableName}");
+                    await reader.CloseAsync();
+                    await connection.CloseAsync();
+                    return 0;
+                }
+            }
+        }
+
+        public static async Task<List<List<string>>> GetColumnsList(string tableName)
+        {
+            //Task<List<Dictionary<string, List<string>>>>
+            await connection.OpenAsync();
+
+            using (var command = new NpgsqlCommand($"SELECT * FROM columns_list('{tableName}')", connection))
+            {
+                var reader = await command.ExecuteReaderAsync();
+                List<List<string>> colNames = new List<List<string>>();
+                
+                for (int i = 0; await reader.ReadAsync(); i++)
+                {
+                    colNames.Add(new List<string>());
+                    colNames[i].Add(reader[1].ToString());
+                    colNames[i].Add(reader[2].ToString());
+                }
+                await reader.CloseAsync();
+                await connection.CloseAsync();
+
+                return colNames;
+
+            }
         }
         #endregion
 
@@ -58,6 +104,5 @@ namespace fotForms.ViewModels
 
         #endregion
 
-        
     }
 }

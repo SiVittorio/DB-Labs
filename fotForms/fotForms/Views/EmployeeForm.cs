@@ -1,9 +1,13 @@
-﻿using System;
+﻿using fotForms.Models;
+using fotForms.ViewModels;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,9 +21,11 @@ namespace fotForms.Views
             InitializeComponent();
         }
 
-        private void EmployeeForm_Load(object sender, EventArgs e)
+        private async void EmployeeForm_Load(object sender, EventArgs e)
         {
+            List<Employee> list = await EmployeeViewModel.GetEmployeesName();
 
+            
         }
     }
 }
