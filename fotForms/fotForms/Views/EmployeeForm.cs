@@ -25,7 +25,11 @@ namespace fotForms.Views
         {
             List<Employee> list = await EmployeeViewModel.GetEmployeesName();
 
-            
+            foreach (Employee emp in list)
+            {
+                listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.l_name, emp.f_name, emp.m_name }));
+            }
+
         }
     }
 }

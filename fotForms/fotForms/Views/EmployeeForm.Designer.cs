@@ -32,15 +32,16 @@
             colLastName = new ColumnHeader();
             colFirstName = new ColumnHeader();
             colMiddleName = new ColumnHeader();
+            colID = new ColumnHeader();
             SuspendLayout();
             // 
             // listEmployees
             // 
             listEmployees.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listEmployees.Columns.AddRange(new ColumnHeader[] { colLastName, colFirstName, colMiddleName });
+            listEmployees.Columns.AddRange(new ColumnHeader[] { colID, colLastName, colFirstName, colMiddleName });
             listEmployees.Location = new Point(12, 121);
             listEmployees.Name = "listEmployees";
-            listEmployees.Size = new Size(558, 240);
+            listEmployees.Size = new Size(558, 220);
             listEmployees.TabIndex = 1;
             listEmployees.UseCompatibleStateImageBehavior = false;
             listEmployees.View = View.Details;
@@ -59,6 +60,10 @@
             // 
             colMiddleName.Text = "Отчество";
             colMiddleName.Width = 180;
+            // 
+            // colID
+            // 
+            colID.Text = "ID";
             // 
             // EmployeeForm
             // 
@@ -79,5 +84,6 @@
         private ColumnHeader colLastName;
         private ColumnHeader colFirstName;
         private ColumnHeader colMiddleName;
+        private ColumnHeader colID;
     }
 }
