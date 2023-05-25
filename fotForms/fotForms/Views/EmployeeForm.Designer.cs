@@ -29,47 +29,61 @@
         private void InitializeComponent()
         {
             listEmployees = new ListView();
+            colID = new ColumnHeader();
             colLastName = new ColumnHeader();
             colFirstName = new ColumnHeader();
             colMiddleName = new ColumnHeader();
-            colID = new ColumnHeader();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // listEmployees
             // 
             listEmployees.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listEmployees.Columns.AddRange(new ColumnHeader[] { colID, colLastName, colFirstName, colMiddleName });
-            listEmployees.Location = new Point(12, 121);
+            listEmployees.FullRowSelect = true;
+            listEmployees.Location = new Point(12, 176);
+            listEmployees.MultiSelect = false;
             listEmployees.Name = "listEmployees";
-            listEmployees.Size = new Size(558, 220);
+            listEmployees.Size = new Size(858, 242);
             listEmployees.TabIndex = 1;
             listEmployees.UseCompatibleStateImageBehavior = false;
             listEmployees.View = View.Details;
             // 
+            // colID
+            // 
+            colID.Text = "ID";
+            colID.Width = 0;
+            // 
             // colLastName
             // 
             colLastName.Text = "Фамилия";
-            colLastName.Width = 180;
+            colLastName.Width = 300;
             // 
             // colFirstName
             // 
             colFirstName.Text = "Имя";
-            colFirstName.Width = 180;
+            colFirstName.Width = 300;
             // 
             // colMiddleName
             // 
             colMiddleName.Text = "Отчество";
-            colMiddleName.Width = 180;
+            colMiddleName.Width = 300;
             // 
-            // colID
+            // progressBar1
             // 
-            colID.Text = "ID";
+            progressBar1.Dock = DockStyle.Bottom;
+            progressBar1.Location = new Point(0, 424);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(882, 29);
+            progressBar1.Step = 1;
+            progressBar1.TabIndex = 2;
             // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(582, 353);
+            ClientSize = new Size(882, 453);
+            Controls.Add(progressBar1);
             Controls.Add(listEmployees);
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -85,5 +99,6 @@
         private ColumnHeader colFirstName;
         private ColumnHeader colMiddleName;
         private ColumnHeader colID;
+        private ProgressBar progressBar1;
     }
 }
