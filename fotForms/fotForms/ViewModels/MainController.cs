@@ -17,7 +17,11 @@ namespace fotForms.ViewModels
     {
         #region Методы
         public MainController() { }
-
+        /// <summary>
+        /// Получить количество данных
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         public static int GetRowsCount(string tableName)
         {
             connection.Open();
@@ -41,7 +45,11 @@ namespace fotForms.ViewModels
                 }
             }
         }
-
+        /// <summary>
+        /// Получить количество свойств
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         public static async Task<int> GetColumnsCount(string tableName)
         {
             await connection.OpenAsync();
@@ -67,7 +75,11 @@ namespace fotForms.ViewModels
                 }
             }
         }
-
+        /// <summary>
+        /// Получить список названий свойств
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         public static async Task<List<List<string>>> GetColumnsList(string tableName)
         {
             //Task<List<Dictionary<string, List<string>>>>
@@ -88,6 +100,29 @@ namespace fotForms.ViewModels
                 await connection.CloseAsync();
 
                 return colNames;
+
+            }
+        }
+        /// <summary>
+        /// Получить ID по значению
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public static async Task<int> GetId(string tableName, string columnName, string value)
+        {
+            await connection.OpenAsync();
+
+            using (var command = new NpgsqlCommand
+                ($"SELECT id FROM columns_list('{tableName} WHERE \"{columnName}\" = \'{value}\'')", connection))
+            {
+                var reader = await command.ExecuteReaderAsync();
+
+                int id = reader.GetInt32(0);
+                await reader.CloseAsync();
+                await connection.CloseAsync();
+
+                return id;
 
             }
         }

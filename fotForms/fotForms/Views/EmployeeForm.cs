@@ -42,10 +42,16 @@ namespace fotForms.Views
                 //listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.l_name, emp.f_name, emp.m_name }));
                 listEmployees.Invoke(new Action(() =>
                 {
-                    listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.l_name, emp.f_name, emp.m_name }));
+                    listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.L_name, emp.F_name, emp.Mid_name }));
                     progressBar1.PerformStep();
                 }));
             }
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            CreateForm createForm = new CreateForm();
+            createForm.ShowDialog();
         }
     }
 }

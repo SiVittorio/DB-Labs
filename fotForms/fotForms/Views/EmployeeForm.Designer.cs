@@ -34,6 +34,13 @@
             colFirstName = new ColumnHeader();
             colMiddleName = new ColumnHeader();
             progressBar1 = new ProgressBar();
+            btnCreate = new Button();
+            groupBox1 = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnDelete = new Button();
+            btnView = new Button();
+            groupBox1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // listEmployees
@@ -78,6 +85,66 @@
             progressBar1.Step = 1;
             progressBar1.TabIndex = 2;
             // 
+            // btnCreate
+            // 
+            btnCreate.Dock = DockStyle.Fill;
+            btnCreate.Location = new Point(3, 3);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(267, 28);
+            btnCreate.TabIndex = 3;
+            btnCreate.Text = "Добавить";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(tableLayoutPanel1);
+            groupBox1.Dock = DockStyle.Top;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(30, 0, 30, 10);
+            groupBox1.Size = new Size(882, 64);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(btnDelete, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnView, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnCreate, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(30, 20);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(822, 34);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Dock = DockStyle.Fill;
+            btnDelete.Location = new Point(549, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(270, 28);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "Удалить";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnView
+            // 
+            btnView.Dock = DockStyle.Fill;
+            btnView.Location = new Point(276, 3);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(267, 28);
+            btnView.TabIndex = 4;
+            btnView.Text = "Просмотр";
+            btnView.UseVisualStyleBackColor = true;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -85,10 +152,14 @@
             ClientSize = new Size(882, 453);
             Controls.Add(progressBar1);
             Controls.Add(listEmployees);
+            Controls.Add(groupBox1);
+            MinimumSize = new Size(900, 500);
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeForm";
             Load += EmployeeForm_Load;
+            groupBox1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -100,5 +171,10 @@
         private ColumnHeader colMiddleName;
         private ColumnHeader colID;
         private ProgressBar progressBar1;
+        private Button btnCreate;
+        private GroupBox groupBox1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button btnDelete;
+        private Button btnView;
     }
 }

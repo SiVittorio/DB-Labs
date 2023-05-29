@@ -13,6 +13,11 @@ namespace fotForms.ViewModels
     class EmployeeViewModel : MainController
     {
         #region Методы
+        /// <summary>
+        /// Получить объект сотрудника
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static async Task<Employee> GetEmployee(int id = 1)
         {
             Employee employee = new Employee();
@@ -27,12 +32,12 @@ namespace fotForms.ViewModels
                 {
                     Console.WriteLine($"GetEmployee: Обработка данных для пользователя с id {reader.GetInt32(0)}");
                     employee.Id = reader.GetInt32(0);
-                    employee.f_name = reader.GetString(1);
-                    employee.m_name = reader.GetString(2);
-                    employee.l_name = reader.GetString(3);
-                    employee.reg_date = reader.GetDateTime(4);
-                    employee.email = reader.GetString(5);
-                    employee.phone = reader.GetString(6);
+                    employee.F_name = reader.GetString(1);
+                    employee.Mid_name = reader.GetString(2);
+                    employee.L_name = reader.GetString(3);
+                    employee.Reg_date = reader.GetDateTime(4);
+                    employee.Email = reader.GetString(5);
+                    employee.Phone = reader.GetString(6);
                 }
                 else
                 {
@@ -44,8 +49,10 @@ namespace fotForms.ViewModels
             await connection.CloseAsync();
             return employee;
         }
-
-
+        /// <summary>
+        /// Получить ФИО сотрудника
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<Employee>> GetEmployeesName()
         {
             await connection.OpenAsync();
@@ -60,9 +67,9 @@ namespace fotForms.ViewModels
                 {
                     employees.Add(new Employee());
                     employees[i].Id = reader.GetInt32(0);
-                    employees[i].l_name = reader.GetString(1);
-                    employees[i].f_name = reader.GetString(2);
-                    employees[i].m_name = reader.GetString(3);
+                    employees[i].L_name = reader.GetString(1);
+                    employees[i].F_name = reader.GetString(2);
+                    employees[i].Mid_name = reader.GetString(3);
                 }
                 await reader.CloseAsync();
                 await connection.CloseAsync();
