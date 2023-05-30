@@ -30,7 +30,6 @@ namespace fotForms.ViewModels
             }
 
             await connection.CloseAsync();
-
             return list;
 
         }

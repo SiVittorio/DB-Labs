@@ -22,10 +22,9 @@ namespace fotForms.ViewModels
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        public static int GetRowsCount(string tableName)
+        public async static Task<int> GetRowsCount(string tableName)
         {
-            connection.Open();
-
+            await connection.OpenAsync();
             using (var command = new NpgsqlCommand($"SELECT COUNT(*) FROM {tableName}", connection))
             {
                 var reader = command.ExecuteReader();
@@ -40,7 +39,6 @@ namespace fotForms.ViewModels
                 else
                 {
                     reader.Close();
-                    connection.Close();
                     return 0;
                 }
             }
@@ -53,7 +51,6 @@ namespace fotForms.ViewModels
         public static async Task<int> GetColumnsCount(string tableName)
         {
             await connection.OpenAsync();
-
             using (var command = new NpgsqlCommand($"SELECT * FROM columns_count('{tableName}')", connection))
             {
                 var reader = await command.ExecuteReaderAsync();
@@ -70,7 +67,6 @@ namespace fotForms.ViewModels
                 {
                     Console.WriteLine($"Ошибка получения количества строк в таблице {tableName}");
                     await reader.CloseAsync();
-                    await connection.CloseAsync();
                     return 0;
                 }
             }
@@ -84,7 +80,6 @@ namespace fotForms.ViewModels
         {
             //Task<List<Dictionary<string, List<string>>>>
             await connection.OpenAsync();
-
             using (var command = new NpgsqlCommand($"SELECT * FROM columns_list('{tableName}')", connection))
             {
                 var reader = await command.ExecuteReaderAsync();
@@ -97,7 +92,6 @@ namespace fotForms.ViewModels
                     colNames[i].Add(reader[2].ToString());
                 }
                 await reader.CloseAsync();
-                await connection.CloseAsync();
 
                 return colNames;
 
@@ -112,16 +106,17 @@ namespace fotForms.ViewModels
         public static async Task<int> GetId(string tableName, string columnName, string value)
         {
             await connection.OpenAsync();
-
             using (var command = new NpgsqlCommand
-                ($"SELECT id FROM columns_list('{tableName} WHERE \"{columnName}\" = \'{value}\'')", connection))
+                ($"SELECT id FROM {tableName} WHERE \"{columnName}\" = \'{value}\'", connection))
             {
                 var reader = await command.ExecuteReaderAsync();
-
-                int id = reader.GetInt32(0);
+                int id = 0;
+                if (await reader.ReadAsync())
+                {
+                    id = reader.GetInt32(0);
+                }
                 await reader.CloseAsync();
                 await connection.CloseAsync();
-
                 return id;
 
             }

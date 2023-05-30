@@ -53,5 +53,10 @@ namespace fotForms.Views
             CreateForm createForm = new CreateForm();
             createForm.ShowDialog();
         }
+
+        public void AddNewItem(Employee emp)
+        {
+            listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.L_name, emp.F_name, emp.Mid_name }));
+        }
     }
 }

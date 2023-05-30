@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tbPhone = new MaskedTextBox();
             cmbSciJob = new ComboBox();
             Ranks = new TableLayoutPanel();
             rb1 = new RadioButton();
@@ -41,23 +40,18 @@
             tbMName = new TextBox();
             tbEmail = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
+            cmbMainWork = new ComboBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            chbPhoneEnable = new CheckBox();
+            tbPhone = new MaskedTextBox();
             panel1 = new Panel();
             bntCancel = new Button();
             btnSave = new Button();
-            cmbMainWork = new ComboBox();
             Ranks.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // tbPhone
-            // 
-            tbPhone.Dock = DockStyle.Fill;
-            tbPhone.Location = new Point(13, 223);
-            tbPhone.Mask = "+7 (000) 000 00-00";
-            tbPhone.Name = "tbPhone";
-            tbPhone.Size = new Size(342, 27);
-            tbPhone.TabIndex = 10;
             // 
             // cmbSciJob
             // 
@@ -198,8 +192,8 @@
             tableLayoutPanel1.Controls.Add(cmbJob, 0, 6);
             tableLayoutPanel1.Controls.Add(Ranks, 0, 7);
             tableLayoutPanel1.Controls.Add(cmbSciJob, 0, 8);
-            tableLayoutPanel1.Controls.Add(tbPhone, 0, 5);
             tableLayoutPanel1.Controls.Add(cmbMainWork, 0, 4);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 5);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -217,6 +211,54 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
             tableLayoutPanel1.Size = new Size(368, 437);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // cmbMainWork
+            // 
+            cmbMainWork.Dock = DockStyle.Fill;
+            cmbMainWork.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMainWork.FormattingEnabled = true;
+            cmbMainWork.Location = new Point(13, 181);
+            cmbMainWork.Name = "cmbMainWork";
+            cmbMainWork.Size = new Size(342, 28);
+            cmbMainWork.TabIndex = 11;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.1228065F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.8771935F));
+            tableLayoutPanel2.Controls.Add(chbPhoneEnable, 0, 0);
+            tableLayoutPanel2.Controls.Add(tbPhone, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(13, 223);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(342, 36);
+            tableLayoutPanel2.TabIndex = 12;
+            // 
+            // chbPhoneEnable
+            // 
+            chbPhoneEnable.AutoSize = true;
+            chbPhoneEnable.Dock = DockStyle.Fill;
+            chbPhoneEnable.Location = new Point(3, 3);
+            chbPhoneEnable.Name = "chbPhoneEnable";
+            chbPhoneEnable.Size = new Size(162, 30);
+            chbPhoneEnable.TabIndex = 2;
+            chbPhoneEnable.Text = "Есть телефон";
+            chbPhoneEnable.UseVisualStyleBackColor = true;
+            chbPhoneEnable.CheckedChanged += chbPhoneEnable_CheckedChanged;
+            // 
+            // tbPhone
+            // 
+            tbPhone.Dock = DockStyle.Fill;
+            tbPhone.Enabled = false;
+            tbPhone.Location = new Point(171, 3);
+            tbPhone.Mask = "+7 (000) 000 00-00";
+            tbPhone.Name = "tbPhone";
+            tbPhone.Size = new Size(168, 27);
+            tbPhone.TabIndex = 13;
             // 
             // panel1
             // 
@@ -251,16 +293,6 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // cmbMainWork
-            // 
-            cmbMainWork.Dock = DockStyle.Fill;
-            cmbMainWork.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbMainWork.FormattingEnabled = true;
-            cmbMainWork.Location = new Point(13, 181);
-            cmbMainWork.Name = "cmbMainWork";
-            cmbMainWork.Size = new Size(342, 28);
-            cmbMainWork.TabIndex = 11;
-            // 
             // CreateForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -277,13 +309,13 @@
             Ranks.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private MaskedTextBox tbPhone;
         private ComboBox cmbSciJob;
         private TableLayoutPanel Ranks;
         private RadioButton rb1;
@@ -300,5 +332,8 @@
         private Button btnSave;
         private Button bntCancel;
         private ComboBox cmbMainWork;
+        private TableLayoutPanel tableLayoutPanel2;
+        private CheckBox chbPhoneEnable;
+        private MaskedTextBox tbPhone;
     }
 }

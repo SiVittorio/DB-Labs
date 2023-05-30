@@ -164,8 +164,6 @@
         }
 
         #endregion
-
-        private ListView listEmployees;
         private ColumnHeader colLastName;
         private ColumnHeader colFirstName;
         private ColumnHeader colMiddleName;
@@ -176,5 +174,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnDelete;
         private Button btnView;
+        public ListView listEmployees;
     }
 }

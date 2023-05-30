@@ -30,5 +30,6 @@ namespace fotForms.Views
         {
             labelCurDate.Text = "Текущая дата: " + DateTime.Now.ToString("d");
         }
+
     }
 }
