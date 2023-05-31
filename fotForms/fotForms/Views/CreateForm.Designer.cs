@@ -39,7 +39,7 @@
             tbFName = new TextBox();
             tbMName = new TextBox();
             tbEmail = new TextBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tableProps = new TableLayoutPanel();
             cmbMainWork = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             chbPhoneEnable = new CheckBox();
@@ -48,7 +48,7 @@
             bntCancel = new Button();
             btnSave = new Button();
             Ranks.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tableProps.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -181,36 +181,36 @@
             tbEmail.Size = new Size(342, 27);
             tbEmail.TabIndex = 4;
             // 
-            // tableLayoutPanel1
+            // tableProps
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.Controls.Add(tbEmail, 0, 3);
-            tableLayoutPanel1.Controls.Add(tbMName, 0, 2);
-            tableLayoutPanel1.Controls.Add(tbFName, 0, 1);
-            tableLayoutPanel1.Controls.Add(tbLName, 0, 0);
-            tableLayoutPanel1.Controls.Add(cmbJob, 0, 6);
-            tableLayoutPanel1.Controls.Add(Ranks, 0, 7);
-            tableLayoutPanel1.Controls.Add(cmbSciJob, 0, 8);
-            tableLayoutPanel1.Controls.Add(cmbMainWork, 0, 4);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 5);
-            tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(10, 10, 10, 0);
-            tableLayoutPanel1.RowCount = 10;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.913345F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2901745F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.43266F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
-            tableLayoutPanel1.Size = new Size(368, 437);
-            tableLayoutPanel1.TabIndex = 0;
+            tableProps.ColumnCount = 1;
+            tableProps.ColumnStyles.Add(new ColumnStyle());
+            tableProps.Controls.Add(tbEmail, 0, 3);
+            tableProps.Controls.Add(tbMName, 0, 2);
+            tableProps.Controls.Add(tbFName, 0, 1);
+            tableProps.Controls.Add(tbLName, 0, 0);
+            tableProps.Controls.Add(cmbJob, 0, 6);
+            tableProps.Controls.Add(Ranks, 0, 7);
+            tableProps.Controls.Add(cmbSciJob, 0, 8);
+            tableProps.Controls.Add(cmbMainWork, 0, 4);
+            tableProps.Controls.Add(tableLayoutPanel2, 0, 5);
+            tableProps.Dock = DockStyle.Top;
+            tableProps.Location = new Point(0, 0);
+            tableProps.Name = "tableProps";
+            tableProps.Padding = new Padding(10, 10, 10, 0);
+            tableProps.RowCount = 10;
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 9.913345F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2901745F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 9.43266F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
+            tableProps.Size = new Size(368, 437);
+            tableProps.TabIndex = 0;
             // 
             // cmbMainWork
             // 
@@ -299,16 +299,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(368, 563);
             Controls.Add(panel1);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tableProps);
             Name = "CreateForm";
             Padding = new Padding(0, 0, 0, 10);
             StartPosition = FormStartPosition.CenterParent;
             Text = "CreateForm";
+            FormClosing += CreateForm_FormClosing;
             Load += CreateForm_Load;
+            Shown += CreateForm_Shown;
             Ranks.ResumeLayout(false);
             Ranks.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            tableProps.ResumeLayout(false);
+            tableProps.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -327,13 +329,13 @@
         private TextBox tbFName;
         private TextBox tbMName;
         private TextBox tbEmail;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableProps;
         private Panel panel1;
-        private Button btnSave;
         private Button bntCancel;
         private ComboBox cmbMainWork;
         private TableLayoutPanel tableLayoutPanel2;
         private CheckBox chbPhoneEnable;
         private MaskedTextBox tbPhone;
+        public Button btnSave;
     }
 }

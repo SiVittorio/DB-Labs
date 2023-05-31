@@ -48,6 +48,7 @@
             listEmployees.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listEmployees.Columns.AddRange(new ColumnHeader[] { colID, colLastName, colFirstName, colMiddleName });
             listEmployees.FullRowSelect = true;
+            listEmployees.GridLines = true;
             listEmployees.Location = new Point(12, 176);
             listEmployees.MultiSelect = false;
             listEmployees.Name = "listEmployees";
@@ -134,6 +135,7 @@
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Удалить";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnView
             // 
@@ -144,6 +146,7 @@
             btnView.TabIndex = 4;
             btnView.Text = "Просмотр";
             btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
             // EmployeeForm
             // 
@@ -157,7 +160,11 @@
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeForm";
+            Activated += EmployeeForm_Activated;
+            Deactivate += EmployeeForm_Deactivate;
+            FormClosing += EmployeeForm_FormClosing;
             Load += EmployeeForm_Load;
+            Shown += EmployeeForm_Shown;
             groupBox1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);

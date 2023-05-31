@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace fotForms.Models
 {
-    internal class EmployeeInfo
+    public class EmployeeInfo
     {
         public EmployeeInfo() { }
 

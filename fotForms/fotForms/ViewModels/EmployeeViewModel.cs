@@ -47,6 +47,33 @@ namespace fotForms.ViewModels
             }
             return employee;
         }
+        public static async Task<EmployeeInfo> GetEmployeeInfo(int id = 1)
+        {
+            EmployeeInfo employeeInfo = new EmployeeInfo();
+            await connection.OpenAsync();
+            using (var command = new NpgsqlCommand($"SELECT * FROM employee_info where employee_id={id}", connection))
+            {
+                var reader = await command.ExecuteReaderAsync();
+
+                if (await reader.ReadAsync())
+                {
+                    Console.WriteLine($"GetEmployee: Обработка данных для инфо о пользователе с id {reader.GetInt32(0)}");
+                    employeeInfo.EmployeeId = reader.GetInt32(0);
+                    employeeInfo.JobId = reader.GetInt32(1);
+                    employeeInfo.RankId = reader.GetInt32(2);
+                    employeeInfo.SciJobId = reader.GetInt32(3);
+                    employeeInfo.MainWorkId = reader.GetInt32(4);
+
+                }
+                else
+                {
+                    Console.WriteLine("GetEmployeeInfo: данные не считаны");
+                }
+                await connection.CloseAsync();
+                await reader.CloseAsync();
+            }
+            return employeeInfo;
+        }
         /// <summary>
         /// Получить ФИО сотрудника
         /// </summary>
@@ -82,10 +109,10 @@ namespace fotForms.ViewModels
             await using (var cmd = new NpgsqlCommand(commandText, connection))
             {
                 cmd.Parameters.AddWithValue("f_name", employee.F_name);
-                cmd.Parameters.AddWithValue("m_name", employee.Mid_name);
+                cmd.Parameters.AddWithValue("m_name", employee.Mid_name == null ? DBNull.Value : employee.Mid_name);
                 cmd.Parameters.AddWithValue("l_name", employee.L_name);
                 cmd.Parameters.AddWithValue("email", employee.Email);
-                cmd.Parameters.AddWithValue("phone", employee.Phone);
+                cmd.Parameters.AddWithValue("phone", employee.Phone == null ? DBNull.Value : employee.Phone);
 
                 await cmd.ExecuteNonQueryAsync();
             }
@@ -125,6 +152,29 @@ namespace fotForms.ViewModels
 
                 await cmd.ExecuteNonQueryAsync();
                 await connection.CloseAsync();
+            }
+        }
+
+        public async static Task<bool> DeleteEmployee(int id)
+        {
+            await connection.OpenAsync();
+            string commandText =
+                $"CALL del_employee(@id) ";
+            try
+            {
+                await using (var cmd = new NpgsqlCommand(commandText, connection))
+                {
+                    cmd.Parameters.AddWithValue("id", id);
+                    await cmd.ExecuteNonQueryAsync();
+                    await connection.CloseAsync();
+                }
+                return true;
+            }
+            catch
+            {
+                await Console.Out.WriteLineAsync("Удаление не удалось!!!");
+                return false;
+                throw;
             }
         }
         #endregion

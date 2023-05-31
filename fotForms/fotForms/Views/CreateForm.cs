@@ -17,31 +17,45 @@ namespace fotForms.Views
 {
     public partial class CreateForm : Form
     {
+        public Employee Employee { get; set; }
+        public EmployeeInfo EmployeeInfo { get; set; }
+
+        private bool ReadFlag { get; set; }
         public CreateForm()
         {
             InitializeComponent();
         }
-
+        #region Методы
         private async void CreateForm_Load(object sender, EventArgs e)
         {
-            var list = await ComboBoxViewModel.GetData("jobs", "name");
-            foreach (var item in list)
+            if (!ReadFlag)
             {
-                cmbJob.Items.Add(item);
+                tbPhone.Clear();
+                tbFName.Clear();
+                tbLName.Clear();
+                tbMName.Clear();
+                tbEmail.Clear();
+                rb1.Checked = false;
+                rb2.Checked = false;
+                rb3.Checked = false;
+                rb4.Checked = false;
+                chbPhoneEnable.Checked = false;
+                if (cmbJob.Items.Count > 0)
+                {
+                    cmbJob.SelectedIndex = 0;
+                    cmbMainWork.SelectedIndex = 0;
+                    cmbSciJob.SelectedIndex = 0;
+                }
             }
-            cmbJob.SelectedIndex = 0;
-            list = await ComboBoxViewModel.GetData("sci_jobs", "name");
-            foreach (var item in list)
+            else if (cmbJob.Items.Count > 0)
             {
-                cmbSciJob.Items.Add(item);
+                ReadFlag = false;
+                cmbJob.SelectedIndex = EmployeeInfo.JobId;
+                cmbMainWork.SelectedIndex = EmployeeInfo.MainWorkId;
+                cmbSciJob.SelectedIndex = EmployeeInfo.SciJobId;
             }
-            cmbSciJob.SelectedIndex = 0;
-            list = await ComboBoxViewModel.GetData("main_work", "name");
-            foreach (var item in list)
-            {
-                cmbMainWork.Items.Add(item);
-            }
-            cmbMainWork.SelectedIndex = 0;
+
+
         }
 
         private void bntCancel_Click(object sender, EventArgs e)
@@ -75,34 +89,25 @@ namespace fotForms.Views
             else
             {
                 Employee employee = new Employee(tbFName.Text, tbMName.Text, tbLName.Text,
-                        tbEmail.Text, tbPhone.Text);
+                        tbEmail.Text, !chbPhoneEnable.Checked ? null : tbPhone.Text);
 
 
                 var gradeId = Ranks.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Name.Last();
 
-
-                EmployeeInfo employeeInfo = new EmployeeInfo(await EmployeeViewModel.AddEmployee(employee), await MainController.GetId("jobs", "name", cmbJob.Text), Int32.Parse(gradeId.ToString()),
+                employee.Id = await EmployeeViewModel.AddEmployee(employee);
+                EmployeeInfo employeeInfo = new EmployeeInfo(employee.Id, await MainController.GetId("jobs", "name", cmbJob.Text), Int32.Parse(gradeId.ToString()),
                     await MainController.GetId("sci_jobs", "name", cmbSciJob.Text),
                     await MainController.GetId("main_work", "name", cmbMainWork.Text));
 
                 await EmployeeViewModel.AddEmplyeeInfo(employeeInfo);
 
+                Employee = employee;
+                EmployeeInfo = employeeInfo;
+
                 MessageBox.Show($"Пользователь {employee.L_name} {employee.F_name} {employee.Mid_name}" +
                     $" успешно добавлен", "Успешно");
 
-                tbPhone.Clear();
-                tbFName.Clear();
-                tbLName.Clear();
-                tbMName.Clear();
-                tbEmail.Clear();
-                rb1.Checked = false;
-                rb2.Checked = false;
-                rb3.Checked = false;
-                rb4.Checked = false;
-                chbPhoneEnable.Checked = false;
-                cmbJob.SelectedIndex = 0;
-                cmbMainWork.SelectedIndex = 0;
-                cmbSciJob.SelectedIndex = 0;
+                DialogResult = DialogResult.OK;
 
             }
 
@@ -112,5 +117,75 @@ namespace fotForms.Views
         {
             tbPhone.Enabled = chbPhoneEnable.Checked;
         }
+
+
+
+        #endregion
+
+
+
+        private async void CreateForm_Shown(object sender, EventArgs e)
+        {
+            var list = await ComboBoxViewModel.GetData("main_work", "name");
+            cmbMainWork.DataSource = list;
+            cmbMainWork.SelectedIndex = 0;
+            list = await ComboBoxViewModel.GetData("jobs", "name");
+            cmbJob.DataSource = list;
+            cmbJob.SelectedIndex = 0;
+            list = await ComboBoxViewModel.GetData("sci_jobs", "name");
+            cmbSciJob.DataSource = list;
+            cmbSciJob.SelectedIndex = 0;
+
+            if (ReadFlag)
+            {
+                cmbJob.SelectedText = await ComboBoxViewModel.GetData("jobs", "name", EmployeeInfo.JobId);
+                cmbMainWork.SelectedText = await ComboBoxViewModel.GetData("main_work", "name", EmployeeInfo.MainWorkId);
+                cmbSciJob.SelectedText = await ComboBoxViewModel.GetData("sci_jobs", "name", EmployeeInfo.SciJobId);
+                ReadFlag = false;
+            }
+        }
+
+        private void CreateForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+
+        public void SwitchReadMode()
+        {
+            ReadFlag = true;
+
+            btnSave.Enabled = false;
+            tableProps.Enabled = false;
+            tbLName.Text = Employee.L_name;
+            tbFName.Text = Employee.F_name;
+            tbMName.Text = Employee.Mid_name;
+            tbEmail.Text = Employee.Email;
+
+            if (Employee.Phone is not null || Employee.Phone != "")
+            {
+                chbPhoneEnable.Checked = true;
+                tbPhone.Text = Employee.Phone;
+            }
+
+
+            switch (EmployeeInfo.RankId)
+            {
+                case 1:
+                    rb1.Checked = true; break;
+                case 2:
+                    rb2.Checked = true; break;
+                case 3:
+                    rb3.Checked = true; break;
+                case 4:
+                    rb4.Checked = true; break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

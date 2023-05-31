@@ -33,6 +33,28 @@ namespace fotForms.ViewModels
             return list;
 
         }
+
+        public static async Task<string> GetData(string tableName, string columnName, int id)
+        {
+            string value = "";
+            await connection.OpenAsync();
+
+            using (var command = new NpgsqlCommand($"SELECT \"{columnName}\" FROM {tableName} where id = \'{id}\'", connection))
+            {
+                var reader = await command.ExecuteReaderAsync();
+
+                if(await reader.ReadAsync())
+                {
+                    value = reader.GetString(0);
+                }
+
+                await reader.CloseAsync();
+            }
+
+            await connection.CloseAsync();
+            return value;
+
+        }
         #endregion
     }
 }
