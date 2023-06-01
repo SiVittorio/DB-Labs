@@ -17,15 +17,13 @@ namespace fotForms.Views
 {
     public partial class EmployeeForm : Form
     {
-        private CreateForm createForm;
+        private CreateForm createForm = new CreateForm();
         public EmployeeForm()
         {
             InitializeComponent();
             listEmployees.GetType()
                 .GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
                 .SetValue(listEmployees, true, null);
-
-            createForm = new CreateForm();
         }
 
         private async void EmployeeForm_Load(object sender, EventArgs e)
@@ -48,6 +46,7 @@ namespace fotForms.Views
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            createForm.ReadFlag = false;
             if (createForm.ShowDialog() == DialogResult.OK)
             {
                 listEmployees.Items.Add(new ListViewItem
@@ -59,6 +58,8 @@ namespace fotForms.Views
 
         private async void EmployeeForm_Shown(object sender, EventArgs e)
         {
+            await createForm.LoadComboBoxes();
+
             List<Employee> list = await EmployeeViewModel.GetEmployeesName();
 
             progressBar1.Maximum = list.Count;
@@ -124,8 +125,13 @@ namespace fotForms.Views
                 createForm.EmployeeInfo = await EmployeeViewModel.GetEmployeeInfo(Int32.Parse(items[0].SubItems[0].Text));
 
 
-                createForm.SwitchReadMode();
-                createForm.ShowDialog();
+                createForm.ReadFlag = true;
+                if (createForm.ShowDialog() == DialogResult.OK)
+                {
+                    items[0].SubItems[1].Text = createForm.Employee.L_name;
+                    items[0].SubItems[2].Text = createForm.Employee.F_name;
+                    items[0].SubItems[3].Text = createForm.Employee.Mid_name;
+                }
             }
             else
             {

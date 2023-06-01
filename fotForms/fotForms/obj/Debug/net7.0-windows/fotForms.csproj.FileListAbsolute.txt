@@ -63,4 +63,5 @@ D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-wi
 D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\ref\fotForms.dll
 D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.CreateForm.resources
 C:\PROJECTS\DB-Labs\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.CreateForm.resources
-D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.EmployeeReadForm.resources
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.ProjectForm.resources
+D:\University\LABS\2 Year\2_TERM\SQL\LAB_5\fotForms\fotForms\obj\Debug\net7.0-windows\fotForms.Views.ProjectCreateForm.resources

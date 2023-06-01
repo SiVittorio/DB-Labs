@@ -47,10 +47,13 @@
             panel1 = new Panel();
             bntCancel = new Button();
             btnSave = new Button();
+            panel2 = new Panel();
+            btnChange = new Button();
             Ranks.SuspendLayout();
             tableProps.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // cmbSciJob
@@ -293,13 +296,36 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnChange);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 471);
+            panel2.Name = "panel2";
+            panel2.Padding = new Padding(20, 5, 20, 5);
+            panel2.Size = new Size(368, 41);
+            panel2.TabIndex = 2;
+            // 
+            // btnChange
+            // 
+            btnChange.Dock = DockStyle.Right;
+            btnChange.Location = new Point(254, 5);
+            btnChange.Name = "btnChange";
+            btnChange.Size = new Size(94, 31);
+            btnChange.TabIndex = 0;
+            btnChange.Text = "Изменить";
+            btnChange.UseVisualStyleBackColor = true;
+            btnChange.Click += btnChange_Click;
+            // 
             // CreateForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(368, 563);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(tableProps);
+            MinimumSize = new Size(386, 610);
             Name = "CreateForm";
             Padding = new Padding(0, 0, 0, 10);
             StartPosition = FormStartPosition.CenterParent;
@@ -314,6 +340,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -337,5 +364,7 @@
         private CheckBox chbPhoneEnable;
         private MaskedTextBox tbPhone;
         public Button btnSave;
+        private Panel panel2;
+        public Button btnChange;
     }
 }

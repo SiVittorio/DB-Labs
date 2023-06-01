@@ -39,7 +39,7 @@ namespace fotForms.ViewModels
             string value = "";
             await connection.OpenAsync();
 
-            using (var command = new NpgsqlCommand($"SELECT \"{columnName}\" FROM {tableName} where id = \'{id}\'", connection))
+            using (var command = new NpgsqlCommand($"SELECT \"{columnName}\" FROM {tableName} where id = {id}", connection))
             {
                 var reader = await command.ExecuteReaderAsync();
 

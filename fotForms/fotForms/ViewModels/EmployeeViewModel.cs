@@ -32,11 +32,13 @@ namespace fotForms.ViewModels
                     Console.WriteLine($"GetEmployee: Обработка данных для пользователя с id {reader.GetInt32(0)}");
                     employee.Id = reader.GetInt32(0);
                     employee.F_name = reader.GetString(1);
-                    employee.Mid_name = reader.GetString(2);
+                    if (reader.IsDBNull(2)) employee.Mid_name = null;
+                    else employee.Mid_name = reader.GetString(2);
                     employee.L_name = reader.GetString(3);
                     employee.Reg_date = reader.GetDateTime(4);
                     employee.Email = reader.GetString(5);
-                    employee.Phone = reader.GetString(6);
+                    if (reader.IsDBNull(6)) employee.Phone = null;
+                    else employee.Phone = reader.GetString(6);
                 }
                 else
                 {
@@ -83,7 +85,7 @@ namespace fotForms.ViewModels
             await connection.OpenAsync();
             List<Employee> employees = new List<Employee>();
 
-            using (var command = new NpgsqlCommand($"SELECT e.id, e.l_name, e.f_name, e.m_name FROM employees e", connection))
+            using (var command = new NpgsqlCommand($"SELECT e.id, e.l_name, e.f_name, e.m_name FROM employees e ORDER BY (id)", connection))
             {
                 var reader = await command.ExecuteReaderAsync();
 
@@ -93,7 +95,8 @@ namespace fotForms.ViewModels
                     employees[i].Id = reader.GetInt32(0);
                     employees[i].L_name = reader.GetString(1);
                     employees[i].F_name = reader.GetString(2);
-                    employees[i].Mid_name = reader.GetString(3);
+                    if (reader.IsDBNull(3)) employees[i].Mid_name = null;
+                    else employees[i].Mid_name = reader.GetString(3);
                 }
                 await reader.CloseAsync();
                 await connection.CloseAsync();
@@ -136,6 +139,24 @@ namespace fotForms.ViewModels
             }
         }
 
+        public static async Task<int> UpdateEmployee(Employee employee)
+        {
+            await connection.OpenAsync();
+            string commandText = $"UPDATE employees SET f_name=@f_name, m_name=@m_name, l_name=@l_name, email=@email, phone=@phone WHERE id={employee.Id}";
+            await using (var cmd = new NpgsqlCommand(commandText, connection))
+            {
+                cmd.Parameters.AddWithValue("f_name", employee.F_name);
+                cmd.Parameters.AddWithValue("m_name", employee.Mid_name == null ? DBNull.Value : employee.Mid_name);
+                cmd.Parameters.AddWithValue("l_name", employee.L_name);
+                cmd.Parameters.AddWithValue("email", employee.Email);
+                cmd.Parameters.AddWithValue("phone", employee.Phone == null ? DBNull.Value : employee.Phone);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            await connection.CloseAsync();
+            return employee.Id;
+        }
+
 
         public async static Task AddEmplyeeInfo(EmployeeInfo employeeInfo)
         {
@@ -145,6 +166,23 @@ namespace fotForms.ViewModels
             await using (var cmd = new NpgsqlCommand(commandText, connection))
             {
                 cmd.Parameters.AddWithValue("employee_id", employeeInfo.EmployeeId);
+                cmd.Parameters.AddWithValue("job_id", employeeInfo.JobId);
+                cmd.Parameters.AddWithValue("rank_id", employeeInfo.RankId);
+                cmd.Parameters.AddWithValue("sci_job_id", employeeInfo.SciJobId);
+                cmd.Parameters.AddWithValue("main_work_id", employeeInfo.MainWorkId);
+
+                await cmd.ExecuteNonQueryAsync();
+                await connection.CloseAsync();
+            }
+        }
+
+        public async static Task UpdateEmplyeeInfo(EmployeeInfo employeeInfo)
+        {
+            await connection.OpenAsync();
+            string commandText =
+                $"UPDATE employee_info SET main_work_id=@main_work_id, job_id=@job_id, rank_id=@rank_id, sci_job_id=@sci_job_id WHERE employee_id={employeeInfo.EmployeeId}";
+            await using (var cmd = new NpgsqlCommand(commandText, connection))
+            {
                 cmd.Parameters.AddWithValue("job_id", employeeInfo.JobId);
                 cmd.Parameters.AddWithValue("rank_id", employeeInfo.RankId);
                 cmd.Parameters.AddWithValue("sci_job_id", employeeInfo.SciJobId);
