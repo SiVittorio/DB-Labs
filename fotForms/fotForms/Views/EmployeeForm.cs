@@ -17,7 +17,8 @@ namespace fotForms.Views
 {
     public partial class EmployeeForm : Form
     {
-        private CreateForm createForm = new CreateForm();
+        public CreateForm createForm = new CreateForm();
+        public List<Employee> employees = new List<Employee>();
         public EmployeeForm()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace fotForms.Views
 
 
         }
-        private void AddEmployeeInList(List<Employee> list)
+        public void AddEmployeeInList(List<Employee> list)
         {
             foreach (Employee emp in list)
             {
@@ -39,7 +40,7 @@ namespace fotForms.Views
                 listEmployees.Invoke(new Action(() =>
                 {
                     listEmployees.Items.Add(new ListViewItem(new string[] { emp.Id.ToString(), emp.L_name, emp.F_name, emp.Mid_name }));
-                    progressBar1.PerformStep();
+
                 }));
             }
         }
@@ -58,20 +59,15 @@ namespace fotForms.Views
 
         private async void EmployeeForm_Shown(object sender, EventArgs e)
         {
-            await createForm.LoadComboBoxes();
-
-            List<Employee> list = await EmployeeViewModel.GetEmployeesName();
-
-            progressBar1.Maximum = list.Count;
-
-            await Task.Run(() => AddEmployeeInList(list));
-
-            progressBar1.Hide();
+          
         }
 
         private void EmployeeForm_Activated(object sender, EventArgs e)
         {
-            Owner.Enabled = false;
+            if (Owner != null)
+            {
+                Owner.Enabled = false;
+            }
         }
 
         private void EmployeeForm_Deactivate(object sender, EventArgs e)

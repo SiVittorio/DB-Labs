@@ -15,7 +15,8 @@ namespace fotForms.Views
 {
     public partial class ProjectForm : Form
     {
-        private ProjectCreateForm projectCreateForm = new ProjectCreateForm();
+        public ProjectCreateForm projectCreateForm = new ProjectCreateForm();
+        public List<Project> projects;
         public ProjectForm()
         {
             InitializeComponent();
@@ -26,23 +27,17 @@ namespace fotForms.Views
 
         private async void ProjectForm_Load(object sender, EventArgs e)
         {
-            List<Project> list = await ProjectViewModel.GetProjectsInList();
 
-            progressBar1.Maximum = list.Count;
-
-            await Task.Run(() => AddProjectInList(list));
-
-            progressBar1.Hide();
         }
 
-        private void AddProjectInList(List<Project> list)
+        public void AddProjectInList(List<Project> list)
         {
             foreach (Project prj in list)
             {
                 listProjects.Invoke(new Action(() =>
                 {
                     listProjects.Items.Add(new ListViewItem(new string[] { prj.Id.ToString(), prj.Name, prj.Code, prj.IsFinished ? "Да" : "Нет" }));
-                    progressBar1.PerformStep();
+
                 }));
             }
         }

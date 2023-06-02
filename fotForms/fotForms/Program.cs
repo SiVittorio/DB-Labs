@@ -19,7 +19,7 @@ namespace fotForms
 
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new Form1());
+            Application.Run(new LoadingForm());
         }
     }
 }

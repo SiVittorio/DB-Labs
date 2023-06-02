@@ -33,7 +33,6 @@
             colPrjName = new ColumnHeader();
             colPrjCode = new ColumnHeader();
             colIsFinished = new ColumnHeader();
-            progressBar1 = new ProgressBar();
             btnCreate = new Button();
             groupBox1 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -52,7 +51,7 @@
             listProjects.Location = new Point(12, 173);
             listProjects.MultiSelect = false;
             listProjects.Name = "listProjects";
-            listProjects.Size = new Size(858, 245);
+            listProjects.Size = new Size(858, 268);
             listProjects.TabIndex = 5;
             listProjects.UseCompatibleStateImageBehavior = false;
             listProjects.View = View.Details;
@@ -76,15 +75,6 @@
             // 
             colIsFinished.Text = "Закончен";
             colIsFinished.Width = 300;
-            // 
-            // progressBar1
-            // 
-            progressBar1.Dock = DockStyle.Bottom;
-            progressBar1.Location = new Point(0, 424);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(882, 29);
-            progressBar1.Step = 1;
-            progressBar1.TabIndex = 6;
             // 
             // btnCreate
             // 
@@ -154,7 +144,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(882, 453);
             Controls.Add(listProjects);
-            Controls.Add(progressBar1);
             Controls.Add(groupBox1);
             MinimumSize = new Size(900, 500);
             Name = "ProjectForm";
@@ -175,7 +164,6 @@
         private ColumnHeader colPrjName;
         private ColumnHeader colPrjCode;
         private ColumnHeader colIsFinished;
-        private ProgressBar progressBar1;
         private Button btnCreate;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel1;

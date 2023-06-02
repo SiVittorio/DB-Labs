@@ -229,6 +229,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ФОТ";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             groupButtons.ResumeLayout(false);
             groupAnalysisInfo.ResumeLayout(false);

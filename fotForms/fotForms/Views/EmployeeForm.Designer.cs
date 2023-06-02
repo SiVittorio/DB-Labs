@@ -33,7 +33,6 @@
             colLastName = new ColumnHeader();
             colFirstName = new ColumnHeader();
             colMiddleName = new ColumnHeader();
-            progressBar1 = new ProgressBar();
             btnCreate = new Button();
             groupBox1 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -52,7 +51,7 @@
             listEmployees.Location = new Point(12, 176);
             listEmployees.MultiSelect = false;
             listEmployees.Name = "listEmployees";
-            listEmployees.Size = new Size(858, 242);
+            listEmployees.Size = new Size(858, 265);
             listEmployees.TabIndex = 1;
             listEmployees.UseCompatibleStateImageBehavior = false;
             listEmployees.View = View.Details;
@@ -76,15 +75,6 @@
             // 
             colMiddleName.Text = "Отчество";
             colMiddleName.Width = 300;
-            // 
-            // progressBar1
-            // 
-            progressBar1.Dock = DockStyle.Bottom;
-            progressBar1.Location = new Point(0, 424);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(882, 29);
-            progressBar1.Step = 1;
-            progressBar1.TabIndex = 2;
             // 
             // btnCreate
             // 
@@ -153,7 +143,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(882, 453);
-            Controls.Add(progressBar1);
             Controls.Add(listEmployees);
             Controls.Add(groupBox1);
             MinimumSize = new Size(900, 500);
@@ -175,7 +164,6 @@
         private ColumnHeader colFirstName;
         private ColumnHeader colMiddleName;
         private ColumnHeader colID;
-        private ProgressBar progressBar1;
         private Button btnCreate;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel1;

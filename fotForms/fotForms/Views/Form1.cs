@@ -6,16 +6,14 @@ namespace fotForms.Views
 {
     public partial class Form1 : Form
     {
-        private EmployeeForm employeeForm;
-        private ProjectForm projectForm;
+        public EmployeeForm employeeForm = new EmployeeForm();
+        public ProjectForm projectForm = new ProjectForm();
 
         private Dictionary<string, double> fotYear;
         private Dictionary<KeyValuePair<int, int>, double> fotMonth;
         public Form1()
         {
             InitializeComponent();
-            employeeForm = new EmployeeForm();
-            projectForm = new ProjectForm();
 
         }
 
@@ -57,6 +55,11 @@ namespace fotForms.Views
             tbFotYear.Text = Math.Round(fotYear[monthCalendar1.SelectionRange.Start.Year.ToString()]).ToString();
             tbFotMonth.Text = Math.Round(fotMonth
               [new KeyValuePair<int, int>(monthCalendar1.SelectionRange.Start.Year, monthCalendar1.SelectionRange.Start.Month)]).ToString();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
