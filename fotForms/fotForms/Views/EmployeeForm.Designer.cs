@@ -159,7 +159,7 @@
             MinimumSize = new Size(900, 500);
             Name = "EmployeeForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EmployeeForm";
+            Text = "Список сотрудников";
             Activated += EmployeeForm_Activated;
             Deactivate += EmployeeForm_Deactivate;
             FormClosing += EmployeeForm_FormClosing;

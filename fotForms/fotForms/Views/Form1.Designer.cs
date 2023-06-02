@@ -228,7 +228,7 @@
             MinimumSize = new Size(800, 528);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "ФОТ";
             Load += Form1_Load;
             groupButtons.ResumeLayout(false);
             groupAnalysisInfo.ResumeLayout(false);

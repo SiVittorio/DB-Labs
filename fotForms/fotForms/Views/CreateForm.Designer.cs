@@ -329,7 +329,7 @@
             Name = "CreateForm";
             Padding = new Padding(0, 0, 0, 10);
             StartPosition = FormStartPosition.CenterParent;
-            Text = "CreateForm";
+            Text = "Управление сотрудниками";
             FormClosing += CreateForm_FormClosing;
             Load += CreateForm_Load;
             Shown += CreateForm_Shown;

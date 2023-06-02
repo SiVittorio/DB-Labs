@@ -121,23 +121,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vitto\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\LABS\\2 Year\\2_TERM\\SQL\\LAB_5\\fotForms\\fotForms\\fotForms.csproj",
+      "projectUniqueName": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\fotForms.csproj",
       "projectName": "fotForms",
-      "projectPath": "D:\\University\\LABS\\2 Year\\2_TERM\\SQL\\LAB_5\\fotForms\\fotForms\\fotForms.csproj",
-      "packagesPath": "C:\\Users\\vitto\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\LABS\\2 Year\\2_TERM\\SQL\\LAB_5\\fotForms\\fotForms\\obj\\",
+      "projectPath": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\fotForms.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\PROJECTS\\DB-Labs\\fotForms\\fotForms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\vitto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -146,6 +146,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -188,7 +189,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

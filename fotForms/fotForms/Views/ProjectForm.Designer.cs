@@ -159,7 +159,7 @@
             MinimumSize = new Size(900, 500);
             Name = "ProjectForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ProjectForm";
+            Text = "Список проектов";
             Activated += ProjectForm_Activated;
             FormClosing += ProjectForm_FormClosing;
             Load += ProjectForm_Load;

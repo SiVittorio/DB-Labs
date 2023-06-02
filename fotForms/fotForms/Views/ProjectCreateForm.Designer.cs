@@ -93,7 +93,7 @@
             chbIsFinished.Dock = DockStyle.Fill;
             chbIsFinished.Location = new Point(3, 3);
             chbIsFinished.Name = "chbIsFinished";
-            chbIsFinished.Size = new Size(162, 30);
+            chbIsFinished.Size = new Size(162, 31);
             chbIsFinished.TabIndex = 2;
             chbIsFinished.Text = "Проект закончен";
             chbIsFinished.UseVisualStyleBackColor = true;
@@ -121,8 +121,8 @@
             tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
             tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 9.913345F));
             tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
-            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2901745F));
-            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 9.43266F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 13.5831385F));
+            tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 5.8548007F));
             tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519753F));
             tableProps.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0519733F));
             tableProps.Size = new Size(368, 437);
@@ -131,7 +131,7 @@
             // tbClName
             // 
             tbClName.Dock = DockStyle.Fill;
-            tbClName.Location = new Point(13, 97);
+            tbClName.Location = new Point(13, 99);
             tbClName.MaxLength = 30;
             tbClName.Name = "tbClName";
             tbClName.PlaceholderText = "Имя заказчика";
@@ -141,7 +141,7 @@
             // tbCode
             // 
             tbCode.Dock = DockStyle.Fill;
-            tbCode.Location = new Point(13, 55);
+            tbCode.Location = new Point(13, 56);
             tbCode.MaxLength = 30;
             tbCode.Name = "tbCode";
             tbCode.PlaceholderText = "Код проекта";
@@ -165,12 +165,12 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.8771935F));
             tableLayoutPanel2.Controls.Add(chbIsFinished, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(13, 223);
+            tableLayoutPanel2.Location = new Point(13, 227);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(342, 36);
+            tableLayoutPanel2.Size = new Size(342, 37);
             tableLayoutPanel2.TabIndex = 12;
             // 
             // tableLayoutBeginDate
@@ -181,7 +181,7 @@
             tableLayoutBeginDate.Controls.Add(label1, 0, 0);
             tableLayoutBeginDate.Controls.Add(dateBegin, 1, 0);
             tableLayoutBeginDate.Dock = DockStyle.Fill;
-            tableLayoutBeginDate.Location = new Point(13, 181);
+            tableLayoutBeginDate.Location = new Point(13, 185);
             tableLayoutBeginDate.Name = "tableLayoutBeginDate";
             tableLayoutBeginDate.RowCount = 1;
             tableLayoutBeginDate.RowStyles.Add(new RowStyle());
@@ -211,7 +211,7 @@
             // tbEmail
             // 
             tbEmail.Dock = DockStyle.Fill;
-            tbEmail.Location = new Point(13, 139);
+            tbEmail.Location = new Point(13, 142);
             tbEmail.MaxLength = 100;
             tbEmail.Name = "tbEmail";
             tbEmail.PlaceholderText = "Почта заказчика: email@example.ru";
@@ -226,12 +226,12 @@
             tableLayoutEndDate.Controls.Add(label2, 0, 0);
             tableLayoutEndDate.Controls.Add(dateEnd, 1, 0);
             tableLayoutEndDate.Dock = DockStyle.Fill;
-            tableLayoutEndDate.Location = new Point(13, 265);
+            tableLayoutEndDate.Location = new Point(13, 270);
             tableLayoutEndDate.Name = "tableLayoutEndDate";
             tableLayoutEndDate.RowCount = 1;
             tableLayoutEndDate.RowStyles.Add(new RowStyle());
             tableLayoutEndDate.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutEndDate.Size = new Size(342, 37);
+            tableLayoutEndDate.Size = new Size(342, 52);
             tableLayoutEndDate.TabIndex = 14;
             tableLayoutEndDate.Visible = false;
             // 
@@ -242,9 +242,9 @@
             label2.Location = new Point(3, 10);
             label2.Margin = new Padding(3, 10, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(162, 27);
+            label2.Size = new Size(162, 42);
             label2.TabIndex = 14;
-            label2.Text = "Дата начала проекта";
+            label2.Text = "Дата окончания проекта";
             // 
             // dateEnd
             // 
@@ -286,7 +286,7 @@
             Name = "ProjectCreateForm";
             Padding = new Padding(0, 0, 0, 10);
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ProjectCreateForm";
+            Text = "Управление проектами";
             Load += ProjectCreateForm_Load;
             panel1.ResumeLayout(false);
             tableProps.ResumeLayout(false);
